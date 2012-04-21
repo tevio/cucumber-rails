@@ -10,7 +10,7 @@ module Cucumber
 
           find(:xpath, ".//select[@id='#{base_dom_id}_1i']").select(date.year.to_s)
           find(:xpath, ".//select[@id='#{base_dom_id}_2i']").select(I18n.l date, :format => '%B')
-          find(:xpath, ".//select[@id='#{base_dom_id}_3i']").select(date.day.to_s)
+          find(:xpath, ".//select[@id='#{base_dom_id}_3i']").select(date.day.to_s) unless options[:ignore_day] == true
         end
       
         # Select a Rails time. Options has must include :from => +label+
